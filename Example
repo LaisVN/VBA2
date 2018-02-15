@@ -1,0 +1,1700 @@
+Private Sub Exclusion()
+
+
+
+'Model Hold Indicator
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S9").Value = "Y" Then
+                        If Sheets("Summary").Range("T9").Value <> "0" Then
+
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=21, Criteria1:=Sheets("Summary").Range("S9").Value
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    End If
+                    
+                    Else
+                    End If
+
+Sheets("Summary").Select
+
+
+' MI Indicator
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S10").Value = "Y" Then
+                        If Sheets("Summary").Range("T10").Value <> "0" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=20, Criteria1:=Sheets("Summary").Range("S10").Value
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    End If
+                    
+
+                    Else
+                    End If
+
+Sheets("Summary").Select
+
+
+' Forecast Exception
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S11").Value = "F" Or Sheets("Summary").Range("S11").Value = "R" Then
+                        If Sheets("Summary").Range("T11") <> "0" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=28, Criteria1:=Sheets("Summary").Range("S11").Value
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    Else
+                    If Sheets("Summary").Range("S11").Value = "F & R" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=28, Criteria1:="=F", Operator:=xlOr, Criteria2:="=R"
+                    Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                        
+                        Else: End If
+                        
+                        End If
+                    
+                    End If
+
+Sheets("Summary").Select
+
+' Top Down
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S12").Value = "Y" Then
+                        If Sheets("Summary").Range("t12").Value <> "0" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=23, Criteria1:=Sheets("Summary").Range("S12").Value
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    End If
+
+                    Else
+                    End If
+
+Sheets("Summary").Select
+
+' Seasonality
+
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S13").Value <> "" Then
+                        If Sheets("Summary").Range("T13").Value <> "0" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=12, Criteria1:=Sheets("Summary").Range("S13").Value
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    End If
+                    
+                    Else
+                    End If
+
+Sheets("Summary").Select
+
+' Part Status
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S14").Value = "Y" Then
+                        If Sheets("Summary").Range("t14").Value <> "0" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=23, Criteria1:=Sheets("Summary").Range("S14").Value
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    End If
+
+                    Else
+                    End If
+
+Sheets("Summary").Select
+
+' Last Fit Date
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S15").Value <> "MM/DD/YYYY" Then
+                        If Sheets("Summary").Range("S15").Value <> "" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                     ActiveSheet.Range("$A:$BL").AutoFilter Field:=17, Criteria1:=">" & Sheets("summary").Range("s33").Value & "/" & Sheets("summary").Range("r33").Value & "/" & Sheets("summary").Range("t33").Value & ""
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    End If
+                    
+                    Else
+                    End If
+
+
+Sheets("Summary").Select
+
+' Last Batch Date
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S16").Value <> "MM/DD/YYYY" Then
+                        If Sheets("Summary").Range("S16").Value <> "" Then
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                     ActiveSheet.Range("$A:$BL").AutoFilter Field:=18, Criteria1:=">" & Sheets("summary").Range("s34").Value & "/" & Sheets("summary").Range("r34").Value & "/" & Sheets("summary").Range("t34").Value & ""
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    End If
+                    
+                    Else
+                    End If
+
+' Manual Forecast
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+Sheets("detail").Select
+                    If Sheets("Summary").Range("S17").Value = "Y" And Sheets("Detail").Range("BL1").Value <> 0 Then
+
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+
+
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=64, Criteria1:="<>"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[+2]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+                    Else
+                    End If
+
+Sheets("Summary").Select
+
+
+
+End Sub
+
+
+Private Sub rodar_Click()
+
+Sheets("detail").Select
+If ActiveSheet.AutoFilterMode = True Then ActiveSheet.AutoFilterMode = False
+
+'added on April 24th to avoid an error
+
+Application.ScreenUpdating = False
+
+Sheets("detail").Range("b1") = "=COUNTA(C[-1])+1"
+'Sheets("detail").Range("b1").Selection.NumberFormat = "General"
+linha = Sheets("detail").Range("b1").Value
+
+If linha = 2 Then 'added on April 24th
+MsgBox "There are no records to be calculated."
+Exit Sub
+End If
+
+'reset all info - new forecast column = current forecast
+Sheets("detail").Select
+Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-17]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                    
+
+'********************
+'****** step 1 ******
+
+'In case of DECREASE or OPTIMIZE Forecast
+If ComboBox1 = "Decrease Forecast" Or ComboBox1 = "Optimize Forecast" Then
+      
+      
+                If ComboBox5.Text = "Optimal Forecast" Then
+                
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-10]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+
+                Else: End If
+                
+                If ComboBox2.Text = "All Parts" Then
+                
+                     If ComboBox5.Text = "% from Curr to Optimal" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R10C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                
+                    Else
+                              If ComboBox5.Text = "Optimal Fcst +/- %" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R10C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                              End If
+                    End If
+              
+                
+                
+                Else
+                
+                        If ComboBox2.Text = "By INV Class" Then
+                        
+'Adjust Current to Optimal by a certain percentage by Inv Class
+
+                                If ComboBox5.Text = "% from Curr to Optimal" Then
+                'A
+                If Sheets("Summary").Range("M11").Value <> "" And Sheets("Summary").Range("M11").Value <> "x" And Sheets("Summary").Range("L11").Value <> "0" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="A"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R11C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'B
+                If Sheets("Summary").Range("M12").Value <> "" And Sheets("Summary").Range("M12").Value <> "x" And Sheets("Summary").Range("L12").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="B"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R12C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'C
+                If Sheets("Summary").Range("M13").Value <> "" And Sheets("Summary").Range("M13").Value <> "x" And Sheets("Summary").Range("L13").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="C"
+    
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R13C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'D
+                If Sheets("Summary").Range("M14").Value <> "" And Sheets("Summary").Range("M14").Value <> "x" And Sheets("Summary").Range("L14").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="D"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R14C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'E
+                If Sheets("Summary").Range("M15").Value <> "" And Sheets("Summary").Range("M15").Value <> "x" And Sheets("Summary").Range("L15").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="E"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R15C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+'               'I
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="I"
+'                Sheets("detail").Range("BJ1").NumberFormat = "General"
+'                Sheets("detail").Range("BJ1").Select
+'                ActiveCell.FormulaR1C1 = "=RC[-17]+(Summary!R16C13*(RC[-10]-RC[-17]))"
+'                Selection.Copy
+'                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+'                    Selection.SpecialCells(xlCellTypeVisible).Select
+'                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+'                    SkipBlanks:=False, Transpose:=False
+'                                Sheets("detail").Range("a2:bl2").Select
+'                Selection.AutoFilter
+'                    Sheets("detail").Columns("BJ:BJ").Select
+'                    Selection.Copy
+'                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'                        :=False, Transpose:=False
+'                    Application.CutCopyMode = False
+                
+                
+                                Else
+                
+
+                                            If ComboBox5.Text = "Optimal Fcst +/- %" Then
+                'A
+                If Sheets("Summary").Range("M11").Value <> "" And Sheets("Summary").Range("M11").Value <> "x" And Sheets("Summary").Range("L11").Value <> "0" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="A"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R11C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                    
+                Else: End If
+                
+                'B
+                If Sheets("Summary").Range("M12").Value <> "" And Sheets("Summary").Range("M12").Value <> "x" And Sheets("Summary").Range("L12").Value <> "0" Then
+                
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="B"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R12C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'C
+                If Sheets("Summary").Range("M13").Value <> "" And Sheets("Summary").Range("M13").Value <> "x" And Sheets("Summary").Range("L13").Value <> "0" Then
+                
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="C"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R13C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'D
+                If Sheets("Summary").Range("M14").Value <> "" And Sheets("Summary").Range("M14").Value <> "x" And Sheets("Summary").Range("L14").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="D"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R14C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'E
+                If Sheets("Summary").Range("M15").Value <> "" And Sheets("Summary").Range("M15").Value <> "x" And Sheets("Summary").Range("L15").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="E"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R15C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                    
+'               'I
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="1"
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="I"
+'                Sheets("detail").Range("BJ1").NumberFormat = "General"
+'                Sheets("detail").Range("BJ1").Select
+'                ActiveCell.FormulaR1C1 = "=+RC[-10]*(1+Summary!R16C13)"
+'                Selection.Copy
+'                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+'                    Selection.SpecialCells(xlCellTypeVisible).Select
+'                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+'                    SkipBlanks:=False, Transpose:=False
+'                                Sheets("detail").Range("a2:bl2").Select
+'                Selection.AutoFilter
+'                    Sheets("detail").Columns("BJ:BJ").Select
+'                    Selection.Copy
+'                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'                        :=False, Transpose:=False
+'                    Application.CutCopyMode = False
+
+                                             End If
+                                End If
+                        
+                        End If
+                        
+                End If
+                
+'In case of INCREASE Forecast
+Else
+
+
+    If ComboBox5.Text = "Optimal Forecast" Then
+                
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="-1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-10]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+
+                Else: End If
+                
+                If ComboBox2.Text = "All Parts" Then
+                
+                     If ComboBox5.Text = "% from Curr to Optimal" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="-1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R10C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                
+                    Else
+                              If ComboBox5.Text = "Optimal Fcst +/- %" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="-1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                              End If
+                    End If
+
+                Else
+                
+                        If ComboBox2.Text = "By INV Class" Then
+                        
+'Adjust Current to Optimal by a certain percentage by Inv Class
+
+                                If ComboBox5.Text = "% from Curr to Optimal" Then
+                'A
+                If Sheets("Summary").Range("M11").Value <> "" And Sheets("Summary").Range("M11").Value <> "x" And Sheets("Summary").Range("L11").Value <> "0" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="A"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R11C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                            Selection.SpecialCells(xlCellTypeVisible).Select
+                      Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                    Sheets("detail").Range("a2:bl2").Select
+                    Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+             
+                
+                
+                    
+                'B
+                If Sheets("Summary").Range("M12").Value <> "" And Sheets("Summary").Range("M12").Value <> "x" And Sheets("Summary").Range("L12").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="B"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R12C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+
+
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+
+                    Sheets("detail").Range("a2:bl2").Select
+                    Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'C
+                If Sheets("Summary").Range("M13").Value <> "" And Sheets("Summary").Range("M13").Value <> "x" And Sheets("Summary").Range("L13").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="C"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R13C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'D
+                If Sheets("Summary").Range("M14").Value <> "" And Sheets("Summary").Range("M14").Value <> "x" And Sheets("Summary").Range("L14").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="D"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R14C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'E
+                If Sheets("Summary").Range("M15").Value <> "" And Sheets("Summary").Range("M15").Value <> "x" And Sheets("Summary").Range("L15").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="E"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R15C13*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                    
+'               'I
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="I"
+'                Sheets("detail").Range("BJ1").NumberFormat = "General"
+'                Sheets("detail").Range("BJ1").Select
+'                ActiveCell.FormulaR1C1 = "=RC[-17]+(Summary!R16C13*(RC[-10]-RC[-17]))"
+'                Selection.Copy
+'                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+'                    Selection.SpecialCells(xlCellTypeVisible).Select
+'                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+'                    SkipBlanks:=False, Transpose:=False
+'                                Sheets("detail").Range("a2:bl2").Select
+'                Selection.AutoFilter
+'                    Sheets("detail").Columns("BJ:BJ").Select
+'                    Selection.Copy
+'                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'                        :=False, Transpose:=False
+'                    Application.CutCopyMode = False
+                
+                
+                                Else
+                
+' Adjust Optimal Forecast by a certain percentage by Inv Class
+
+                                            If ComboBox5.Text = "Optimal Fcst +/- %" Then
+                'A
+                If Sheets("Summary").Range("M11").Value <> "" And Sheets("Summary").Range("M11").Value <> "x" And Sheets("Summary").Range("L11").Value <> "0" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="A"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R11C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'B
+                If Sheets("Summary").Range("M12").Value <> "" And Sheets("Summary").Range("M12").Value <> "x" And Sheets("Summary").Range("L12").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="B"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R12C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'C
+                If Sheets("Summary").Range("M13").Value <> "" And Sheets("Summary").Range("M13").Value <> "x" And Sheets("Summary").Range("L13").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="C"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R13C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'D
+                If Sheets("Summary").Range("M14").Value <> "" And Sheets("Summary").Range("M14").Value <> "x" And Sheets("Summary").Range("L14").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="D"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R14C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'E
+                If Sheets("Summary").Range("M15").Value <> "" And Sheets("Summary").Range("M15").Value <> "x" And Sheets("Summary").Range("L15").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="E"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R15C13),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+'               'I
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="I"
+'                Sheets("detail").Range("BJ1").NumberFormat = "General"
+'                Sheets("detail").Range("BJ1").Select
+'                ActiveCell.FormulaR1C1 = "=+RC[-10]*(1+Summary!R16C13)"
+'                Selection.Copy
+'                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+'                    Selection.SpecialCells(xlCellTypeVisible).Select
+'                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+'                    SkipBlanks:=False, Transpose:=False
+'                                Sheets("detail").Range("a2:bl2").Select
+'                Selection.AutoFilter
+'                    Sheets("detail").Columns("BJ:BJ").Select
+'                    Selection.Copy
+'                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'                        :=False, Transpose:=False
+'                    Application.CutCopyMode = False
+                
+                
+                
+                                             End If
+                        
+                                End If
+                        
+                        End If
+                        
+                End If
+
+End If
+           
+
+''********************
+''****** step 2 ******
+
+If ComboBox1 = "Decrease Forecast" Or ComboBox1 = "Increase Forecast" Then
+
+                                
+                If ComboBox3.Text = "All Parts" Then
+                
+                     If ComboBox6.Text = "Optimal Fcst +/- %" Or ComboBox6.Text = "Current Fcst +/- %" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="0"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-17]*(1+Summary!R10C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                              
+                    End If
+
+                
+                Else
+                
+                        If ComboBox3.Text = "By INV Class" Then
+                        
+                               
+' Adjust Optimal Forecast by a certain percentage by Inv Class
+
+                                            If ComboBox6.Text = "Optimal Fcst +/- %" Or ComboBox6.Text = "Current Fcst +/- %" Then
+                'A
+                If Sheets("Summary").Range("P11").Value <> "" And Sheets("Summary").Range("P11").Value <> "x" And Sheets("Summary").Range("O11").Value <> "0" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="0"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="A"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-17]*(1+Summary!R11C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'B
+                If Sheets("Summary").Range("P12").Value <> "" And Sheets("Summary").Range("P12").Value <> "x" And Sheets("Summary").Range("O12").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="0"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="B"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-17]*(1+Summary!R12C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'C
+                If Sheets("Summary").Range("P13").Value <> "" And Sheets("Summary").Range("P13").Value <> "x" And Sheets("Summary").Range("O13").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="0"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="C"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-17]*(1+Summary!R13C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'D
+                If Sheets("Summary").Range("P14").Value <> "" And Sheets("Summary").Range("P14").Value <> "x" And Sheets("Summary").Range("O14").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="0"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="D"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-17]*(1+Summary!R14C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'E
+                If Sheets("Summary").Range("P15").Value <> "" And Sheets("Summary").Range("P15").Value <> "x" And Sheets("Summary").Range("O15").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="0"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="E"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-17]*(1+Summary!R15C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+'               'I
+'               ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="0"
+'                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="I"
+'                Sheets("detail").Range("BJ1").NumberFormat = "General"
+'                Sheets("detail").Range("BJ1").Select
+'                ActiveCell.FormulaR1C1 = "=+RC[-10]*(1+Summary!R16C16)"
+'                Selection.Copy
+'                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+'                    Selection.SpecialCells(xlCellTypeVisible).Select
+'                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+'                    SkipBlanks:=False, Transpose:=False
+'                                Sheets("detail").Range("a2:bl2").Select
+'                Selection.AutoFilter
+'                    Sheets("detail").Columns("BJ:BJ").Select
+'                    Selection.Copy
+'                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'                        :=False, Transpose:=False
+'                    Application.CutCopyMode = False
+                
+                
+                
+                                       
+                        
+                                End If
+                        
+                        End If
+
+                        
+                End If
+
+Else 'In case of OPTIMIZE Forecast
+
+    If ComboBox6.Text = "Optimal Forecast" Then
+                
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="-1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=RC[-10]"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+
+
+                Else: End If
+                
+                If ComboBox3.Text = "All Parts" Then
+                
+                     If ComboBox6.Text = "% from Curr to Optimal" Or ComboBox6.Text = "Current Fcst +/- %" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="-1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R10C16*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                
+                    Else
+                              If ComboBox6.Text = "Optimal Fcst +/- %" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    ActiveSheet.Range("$A:$BL").AutoFilter Field:=50, Criteria1:="-1"
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R10C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                              End If
+                    End If
+              
+                
+                
+                Else
+                
+                        If ComboBox3.Text = "By INV Class" Then
+                        
+'Adjust Current to Optimal by a certain percentage by Inv Class
+
+                                If ComboBox6.Text = "% from Curr to Optimal" Then
+                'A
+                If Sheets("Summary").Range("P11").Value <> "" And Sheets("Summary").Range("P11").Value <> "x" And Sheets("Summary").Range("O11").Value <> "0" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="A"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R11C16*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                    
+                'B
+                If Sheets("Summary").Range("P12").Value <> "" And Sheets("Summary").Range("P12").Value <> "x" And Sheets("Summary").Range("O12").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="B"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R12C16*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'C
+                If Sheets("Summary").Range("P13").Value <> "" And Sheets("Summary").Range("P13").Value <> "x" And Sheets("Summary").Range("O13").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="C"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R13C16*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'D
+                If Sheets("Summary").Range("P14").Value <> "" And Sheets("Summary").Range("P14").Value <> "x" And Sheets("Summary").Range("O14").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="D"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R14C16*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'E
+                If Sheets("Summary").Range("P15").Value <> "" And Sheets("Summary").Range("P15").Value <> "x" And Sheets("Summary").Range("O15").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="E"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(RC[-17]+(Summary!R15C16*(RC[-10]-RC[-17])),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                                     
+'               'I
+ '               ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+ '               ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="I"
+'                Sheets("detail").Range("BJ1").NumberFormat = "General"
+'                Sheets("detail").Range("BJ1").Select
+'                ActiveCell.FormulaR1C1 = "=RC[-17]+(Summary!R16C16*(RC[-10]-RC[-17]))"
+'                Selection.Copy
+'                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+'                    Selection.SpecialCells(xlCellTypeVisible).Select
+'                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+'                    SkipBlanks:=False, Transpose:=False
+'                                Sheets("detail").Range("a2:bl2").Select
+'                Selection.AutoFilter
+'                    Sheets("detail").Columns("BJ:BJ").Select
+'                    Selection.Copy
+'                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'                        :=False, Transpose:=False
+'                    Application.CutCopyMode = False
+                
+                
+                                Else
+                
+
+
+                                            If ComboBox6.Text = "Optimal Fcst +/- %" Or ComboBox6.Text = "Current Fcst +/- %" Then
+                'A
+                If Sheets("Summary").Range("P11").Value <> "" And Sheets("Summary").Range("P11").Value <> "x" And Sheets("Summary").Range("O11").Value <> "0" Then
+                Sheets("detail").Select
+                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="A"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R11C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'B
+                If Sheets("Summary").Range("P12").Value <> "" And Sheets("Summary").Range("P12").Value <> "x" And Sheets("Summary").Range("O12").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="B"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R12C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                 Else: End If
+                 
+                'C
+                If Sheets("Summary").Range("P13").Value <> "" And Sheets("Summary").Range("P13").Value <> "x" And Sheets("Summary").Range("O13").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="C"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R13C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'D
+                If Sheets("Summary").Range("P14").Value <> "" And Sheets("Summary").Range("P14").Value <> "x" And Sheets("Summary").Range("O14").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="D"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R14C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+                'E
+                If Sheets("Summary").Range("P15").Value <> "" And Sheets("Summary").Range("P15").Value <> "x" And Sheets("Summary").Range("O15").Value <> "0" Then
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+                ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="E"
+
+                Sheets("detail").Range("BJ1").NumberFormat = "General"
+                Sheets("detail").Range("BJ1").Select
+                ActiveCell.FormulaR1C1 = "=ROUND(+RC[-10]*(1+Summary!R15C16),0)"
+                Selection.Copy
+                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+                    Selection.SpecialCells(xlCellTypeVisible).Select
+                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+                    SkipBlanks:=False, Transpose:=False
+                                Sheets("detail").Range("a2:bl2").Select
+                Selection.AutoFilter
+                    Sheets("detail").Columns("BJ:BJ").Select
+                    Selection.Copy
+                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+                        :=False, Transpose:=False
+                    Application.CutCopyMode = False
+                Else: End If
+                
+'               'I
+ '               ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=50, Criteria1:="-1"
+ '               ActiveSheet.Range("$A$2:$BL$1146").AutoFilter Field:=6, Criteria1:="I"
+'                Sheets("detail").Range("BJ1").NumberFormat = "General"
+'                Sheets("detail").Range("BJ1").Select
+'                ActiveCell.FormulaR1C1 = "=+RC[-10]*(1+Summary!R16C16)"
+'                Selection.Copy
+'                    Sheets("detail").Range("BJ3:BJ" & linha).Select
+'                    Selection.SpecialCells(xlCellTypeVisible).Select
+'                    Selection.PasteSpecial Paste:=xlPasteFormulas, Operation:=xlNone, _
+'                    SkipBlanks:=False, Transpose:=False
+'                                Sheets("detail").Range("a2:bl2").Select
+'                Selection.AutoFilter
+'                    Sheets("detail").Columns("BJ:BJ").Select
+'                    Selection.Copy
+'                    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+'                        :=False, Transpose:=False
+'                    Application.CutCopyMode = False
+                
+                
+                
+                                             End If
+                        
+                                End If
+                        
+                        End If
+                                            
+                      
+                        
+                End If
+
+
+
+End If
+
+Call Exclusion
+
+
+Sheets("summary").Select
+
+
+MsgBox "Forecast Calculated"
+
+
+
+
+End Sub
